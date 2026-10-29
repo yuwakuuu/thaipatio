@@ -1,5 +1,8 @@
 # Thai Patio — website redesign (mockup)
 
+> **This demo has moved to https://tmpbizz.com/demo/thaipatio/**  
+> The pages here now forward old links to the same page there. The site files are in the `demo/thaipatio` folder of github.com/yuwakuuu/tmp. The original-image archive (`images/original/`, `images/SOURCES.md`) stays in this repo.
+
 Static redesign of http://www.thaipatioaz.com/Thai_Patio/Home.html. Open `index.html` in a browser
 (an internet connection is needed for fonts, the map and online ordering).
 
