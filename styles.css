@@ -75,7 +75,7 @@ h3 { font-size: 1.25rem; }
 .paint-logo image { mix-blend-mode: multiply; } /* the logo file has a white background; let the cream stage show through */
 .pen { fill: none; stroke: #fff; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 1; stroke-dashoffset: 1;
   animation: write var(--t) cubic-bezier(.35,0,.55,1) calc(var(--base) + var(--d)) both; }
-.stage-tag { margin: 0; font: 600 clamp(1rem, 3vw, 1.25rem) var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--leaf-dark); animation: fade-up .6s ease-out 7.2s both; }
+.stage-tag { margin: 0; font: 600 clamp(1rem, 3vw, 1.25rem) var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--leaf-dark); animation: fade-up .6s ease-out 5.85s both; }
 @keyframes write { 0% { stroke-dashoffset: 1; opacity: 0; } 1% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 1; } }
 .hero-card h1 { font-size: clamp(1.7rem, 6vw, 2.4rem); margin-bottom: .35rem; }
 .hero-card p { margin: 0 0 .25rem; color: var(--muted); }
@@ -255,7 +255,7 @@ address { font-style: normal; font-size: 1.15rem; margin-bottom: 1rem; }
 .wok-intro { display: none; }
 .intro-on .wok-intro { display: grid; place-items: center; position: fixed; inset: 0; z-index: 200; overflow: hidden;
   background: radial-gradient(circle at 50% 55%, #3a2a22 0%, #1b1716 60%, #110e0d 100%);
-  animation: intro-out .6s ease-in 7.75s forwards; }
+  animation: intro-out .6s ease-in 6.4s forwards; }
 .intro-stage { display: grid; justify-items: center; gap: .5rem; }
 .wok { width: min(420px, 72vw); height: auto; overflow: visible; animation: wok-in .5s cubic-bezier(.2,.8,.3,1.2) both; }
 .pan { transform-origin: 160px 190px; animation: toss .55s ease-in-out .55s 2; }
@@ -277,9 +277,9 @@ address { font-style: normal; font-size: 1.15rem; margin-bottom: 1rem; }
 .intro-skip:hover { background: rgba(35,31,32,.8); }
 
 .hero { overflow: hidden; }
-.intro-on .hero-img { transform-origin: 26% 76%; animation: hero-zoom 1.9s cubic-bezier(.2,.7,.2,1) 7.7s both; }
-.intro-on .hero-card { animation: fade-up .7s ease-out 8.25s both; }
-.intro-on .hero-side { animation: fade-in .9s ease-out 8.05s both; }
+.intro-on .hero-img { transform-origin: 26% 76%; animation: hero-zoom 1.9s cubic-bezier(.2,.7,.2,1) 6.35s both; }
+.intro-on .hero-card { animation: fade-up .7s ease-out 6.9s both; }
+.intro-on .hero-side { animation: fade-in .9s ease-out 6.7s both; }
 .intro-skipped .wok-intro { display: none; }
 .intro-skipped .hero-img, .intro-skipped .hero-card, .intro-skipped .hero-side { animation: none; }
 
