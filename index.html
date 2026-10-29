@@ -63,6 +63,7 @@
 </head>
 <body>
   <div class="wok-intro">
+    <div class="intro-bg"></div>
     <div class="intro-stage" aria-hidden="true">
       <svg class="paint-logo" viewBox="0 0 1600 1222" role="img" aria-label="Thai Patio logo">
           <defs>
@@ -87,16 +88,16 @@
             <clipPath id="c-o"><rect x="1030" y="819" width="210" height="306"/></clipPath>
             <mask id="m-o" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1222"><path class="pen" pathLength="1" style="--d:1.09s;--t:0.18s" stroke-width="58" d="M1125 955 C1122 963 1110 988 1108 1005 C1106 1022 1106 1042 1112 1055 C1118 1068 1133 1079 1145 1082 C1157 1085 1174 1080 1185 1072 C1196 1064 1205 1049 1210 1035 C1215 1021 1215 1004 1213 990 C1211 976 1205 959 1196 950 C1187 941 1172 934 1160 934 C1148 934 1135 940 1126 948 C1117 956 1111 975 1108 980"/></mask>
           </defs>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-T)" mask="url(#m-T)"/>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-h)" mask="url(#m-h)"/>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-a)" mask="url(#m-a)"/>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-i)" mask="url(#m-i)"/>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-umbrella)" mask="url(#m-umbrella)"/>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-P)" mask="url(#m-P)"/>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-a2)" mask="url(#m-a2)"/>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-t)" mask="url(#m-t)"/>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-i2)" mask="url(#m-i2)"/>
-          <image href="images/logo-large.png" width="1600" height="1222" clip-path="url(#c-o)" mask="url(#m-o)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-T)" mask="url(#m-T)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-h)" mask="url(#m-h)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-a)" mask="url(#m-a)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-i)" mask="url(#m-i)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-umbrella)" mask="url(#m-umbrella)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-P)" mask="url(#m-P)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-a2)" mask="url(#m-a2)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-t)" mask="url(#m-t)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-i2)" mask="url(#m-i2)"/>
+          <image href="images/logo-transparent.png" width="1600" height="1222" clip-path="url(#c-o)" mask="url(#m-o)"/>
       </svg>
       <div class="wok-wrap">
         <svg class="wok" viewBox="-60 0 440 280" width="440" height="280">
@@ -111,6 +112,10 @@
               <stop offset="0" stop-color="#5d5856"/>
               <stop offset="1" stop-color="#1f1b1a"/>
             </linearGradient>
+            <radialGradient id="glow">
+              <stop offset="0" stop-color="#ffb340" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#ffb340" stop-opacity="0"/>
+            </radialGradient>
             <radialGradient id="inside" cx=".5" cy=".7" r=".6">
               <stop offset="0" stop-color="#8a4a1c"/>
               <stop offset=".55" stop-color="#3b2a22"/>
@@ -119,6 +124,7 @@
             <!-- everything above the wok's front lip, so the fire sits inside the pan -->
             <clipPath id="in-pan"><path d="M0 0 H320 V168 H277 A117 24 0 0 1 43 168 H0 Z"/></clipPath>
           </defs>
+          <ellipse class="glow" cx="160" cy="140" rx="175" ry="125" fill="url(#glow)"/>
           <g class="pan">
             <path d="M262 176 L346 134" stroke="#2b2523" stroke-width="13" stroke-linecap="round"/>
             <path d="M318 148 L374 120" stroke="#8a5a2b" stroke-width="20" stroke-linecap="round"/>
@@ -130,6 +136,14 @@
                 <path class="f f2" d="M118 186 C94 168 96 140 110 116 C114 136 124 138 126 126 C140 148 142 172 118 186 Z"/>
                 <path class="f f3" d="M204 186 C180 170 182 142 198 112 C200 134 212 138 214 122 C230 148 230 174 204 186 Z"/>
                 <path class="f f4" d="M160 188 C140 176 142 152 154 130 C158 146 166 148 168 138 C180 158 180 178 160 188 Z" fill="#fff6c8"/>
+              </g>
+              <g class="food">
+                <ellipse class="fd" style="--x: -34px; --y: -118px; --r: 260deg; --d: .52s" cx="128" cy="180" rx="11" ry="5.5" fill="#5e9e2c"/>
+                <circle class="fd" style="--x: 26px; --y: -138px; --r: -220deg; --d: .55s" cx="186" cy="182" r="7" fill="#f39a1e"/>
+                <rect class="fd" style="--x: -8px; --y: -150px; --r: 300deg; --d: .5s" x="150" y="176" width="18" height="6" rx="3" fill="#d93a1f"/>
+                <ellipse class="fd" style="--x: 40px; --y: -104px; --r: 200deg; --d: 1.02s" cx="112" cy="182" rx="9" ry="4.5" fill="#8cc63f"/>
+                <circle class="fd" style="--x: -30px; --y: -126px; --r: -260deg; --d: 1.05s" cx="200" cy="183" r="6" fill="#f7c948"/>
+                <rect class="fd" style="--x: 14px; --y: -112px; --r: 240deg; --d: 1s" x="166" y="178" width="14" height="5" rx="2.5" fill="#f39a1e"/>
               </g>
             </g>
             <path d="M43 168 A117 24 0 0 0 277 168" stroke="#77706b" stroke-width="5" fill="none"/>

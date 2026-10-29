@@ -156,6 +156,7 @@ the ones the site uses: unchanged copies (logos, favicon, doodles) or resized/re
 |---|---|
 | images/logo.png | About_Us_files/ThaiPatio_logo_3C.png (unchanged copy) |
 | images/logo-large.png | Home_files/ThaiPatio_logo_newH.png (unchanged copy) |
+| images/logo-transparent.png | Home_files/ThaiPatio_logo_newH.png with its white background turned into transparency (exact colour-to-alpha; over white it is pixel-identical to the original). Used by the intro so the logo can fly over the photo. |
 | images/logo-old.gif | Media/ThaiPatio_logo_new2.gif (unchanged copy) |
 | images/favicon.png | ThaiPatio_logo_url2.png (unchanged copy) |
 | images/doodle-orange-line.png | Home_files/droppedImage.png (unchanged copy) |

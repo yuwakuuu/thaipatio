@@ -17,18 +17,58 @@ menu.addEventListener('click', (e) => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Wok intro (home page): the timing lives in CSS; here we only allow skipping and tidy up afterwards
+// Wok intro (home page). The wok and the handwriting are timed in CSS; this script runs the hand-off:
+// the fire washes out, the written logo flies into the hero card and the photo pulls back from the flames.
 const intro = document.querySelector('.wok-intro');
 if (intro && document.documentElement.classList.contains('intro-on')) {
   try { sessionStorage.setItem('tp-intro', '1'); } catch (e) {}
-  const skip = () => {
-    document.documentElement.classList.add('intro-skipped');
+  const root = document.documentElement;
+  const heroLogo = document.querySelector('.hero-logo');
+  const running = [];
+  const done = () => {
+    if (!intro.isConnected) return;
+    heroLogo.style.opacity = '';
+    root.classList.add('intro-done');
     intro.remove();
   };
-  intro.querySelector('.intro-skip').addEventListener('click', skip);
-  intro.addEventListener('click', (e) => { if (e.target !== intro.querySelector('.intro-skip')) skip(); });
-  addEventListener('keydown', (e) => { if (e.key === 'Escape' && intro.isConnected) skip(); });
-  setTimeout(() => intro.remove(), 3000);
+  const skip = () => {
+    root.classList.add('intro-skipped');
+    running.forEach((a) => a.finish());
+    done();
+  };
+  intro.addEventListener('click', skip);
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') skip(); });
+
+  // wait until a point on the page's animation clock (the CSS animations run on the same clock)
+  const at = (ms) => new Promise((r) => setTimeout(r, Math.max(0, ms - document.timeline.currentTime)));
+  at(2450).then(() => {
+    if (!intro.isConnected) return;
+    const logo = intro.querySelector('.paint-logo');
+    const from = logo.getBoundingClientRect();
+    const to = heroLogo.getBoundingClientRect();
+    const fly = `translate(${to.left - from.left}px, ${to.top - from.top}px) scale(${to.width / from.width})`;
+    const out = { duration: 550, easing: 'ease-in', fill: 'forwards' };
+    heroLogo.style.opacity = '0';
+    logo.style.transformOrigin = '0 0';
+    running.push(
+      intro.querySelector('.intro-bg').animate({ opacity: [1, 0] }, out),
+      intro.querySelector('.intro-flare').animate({ opacity: [1, 0] }, out),
+      // animate the wok drawing, not .wok-wrap: transforming the wrapper would lift the flare above the title
+      intro.querySelector('.wok').animate({ opacity: [1, 0], transform: ['none', 'translateY(40px) scale(.85)'] }, { duration: 420, easing: 'ease-in', fill: 'forwards' }),
+      intro.querySelector('.stage-tag').animate({ opacity: [1, 0] }, { duration: 250, fill: 'forwards' }),
+      intro.querySelector('.intro-skip').animate({ opacity: [1, 0] }, { duration: 200, fill: 'forwards' }),
+      document.querySelector('.hero-img').animate(
+        { transform: ['scale(1.9)', 'none'], filter: ['brightness(1.35) saturate(1.2)', 'none'] },
+        { duration: 1800, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }),
+      document.querySelector('.hero-side').animate({ opacity: [0, 1] }, { duration: 800, delay: 350, fill: 'backwards' }),
+      document.querySelector('.hero-card').animate(
+        { opacity: [0, 1], transform: ['translateY(16px) scale(.97)', 'none'] },
+        { duration: 550, delay: 550, easing: 'ease-out', fill: 'both' }),
+    );
+    const landing = logo.animate({ transform: ['none', fly] }, { duration: 950, delay: 120, easing: 'cubic-bezier(.65,0,.25,1)', fill: 'forwards' });
+    running.push(landing);
+    landing.finished.then(done, done);
+  });
 }
 
 // Lightbox for the gallery and the printed menu pages
