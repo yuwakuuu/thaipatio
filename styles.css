@@ -69,11 +69,11 @@ h3 { font-size: 1.25rem; }
 /* logo stage of the intro: the real logo image is revealed only where an invisible "pen" has travelled.
    Each letter (and the umbrella) is clipped to its own region and masked by round-capped guide strokes that
    are drawn along the letter's path, so it writes like a hand would. Paths come from the logo's measured shapes. */
-.paint-logo { width: min(440px, 74vw, 50vh); height: auto; --base: .35s; }
+.paint-logo { width: min(440px, 74vw, 50vh); height: auto; --base: .3s; }
 .paint-logo image { mix-blend-mode: multiply; } /* the logo file has a white background; let the cream stage show through */
 .pen { fill: none; stroke: #fff; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 1; stroke-dashoffset: 1;
   animation: write var(--t) cubic-bezier(.35,0,.55,1) calc(var(--base) + var(--d)) both; }
-.stage-tag { margin: 0; font: 600 clamp(1rem, 3vw, 1.25rem) var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--leaf-dark); animation: fade-up .6s ease-out 3.3s both; }
+.stage-tag { margin: 0; font: 600 clamp(1rem, 3vw, 1.25rem) var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--leaf-dark); animation: fade-up .5s ease-out 2.45s both; }
 @keyframes write { 0% { stroke-dashoffset: 1; opacity: 0; } 1% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 1; } }
 .hero-card h1 { font-size: clamp(1.7rem, 6vw, 2.4rem); margin-bottom: .35rem; }
 .hero-card p { margin: 0 0 .25rem; color: var(--muted); }
@@ -253,12 +253,12 @@ address { font-style: normal; font-size: 1.15rem; margin-bottom: 1rem; }
 .wok-intro { display: none; }
 .intro-on .wok-intro { display: grid; place-items: center; position: fixed; inset: 0; z-index: 200; overflow: hidden;
   background: radial-gradient(circle at 50% 45%, #fffdf6 0%, #fbfaf5 55%, #efeadb 100%);
-  animation: intro-out .5s ease-in 4.3s forwards; }
+  animation: intro-out .45s ease-in 3.45s forwards; }
 .intro-stage { display: grid; justify-items: center; gap: .25rem; }
 .wok-wrap { position: relative; margin-top: -.5rem; }
-.wok { display: block; width: min(310px, 58vw, 32vh); height: auto; overflow: visible; animation: wok-in .5s cubic-bezier(.2,.8,.3,1.2) both; }
+.wok { display: block; width: min(426px, 80vw, 44vh); height: auto; overflow: visible; animation: wok-in .5s cubic-bezier(.2,.8,.3,1.2) both; }
 .pan { transform-origin: 160px 190px; animation: toss .55s ease-in-out .55s 2; }
-.flames { transform-origin: 160px 186px; animation: flame-grow 1.1s ease-out .15s both, flame-burst .5s ease-in 3.2s forwards; }
+.flames { transform-origin: 160px 186px; animation: flame-grow 1.1s ease-out .15s both, flame-burst .45s ease-in 2.55s forwards; }
 .f { fill: url(#fire); transform-box: fill-box; transform-origin: 50% 100%; animation: flicker .16s ease-in-out infinite alternate; }
 .f2 { animation-duration: .21s; animation-delay: -.08s; }
 .f3 { animation-duration: .19s; animation-delay: -.05s; }
@@ -270,14 +270,14 @@ address { font-style: normal; font-size: 1.15rem; margin-bottom: 1rem; }
 .sparks circle:nth-child(5) { animation-delay: .75s; }
 .intro-flare { position: absolute; z-index: 3; left: 50%; top: 46%; width: 60px; height: 60px; margin: -30px; border-radius: 50%;
   background: radial-gradient(circle, #fff7d6 0%, #ffc533 35%, #f39a1e 65%, rgba(226,70,27,0) 72%);
-  transform: scale(0); animation: flare .7s cubic-bezier(.5,0,.75,0) 3.65s forwards; }
+  transform: scale(0); animation: flare .6s cubic-bezier(.5,0,.75,0) 2.95s forwards; }
 .intro-skip { position: absolute; right: 16px; bottom: 16px; z-index: 2; background: rgba(35,31,32,.55); color: #f6e7c9; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: .5rem 1rem; font: 600 .9rem var(--sans); cursor: pointer; }
 .intro-skip:hover { background: rgba(35,31,32,.8); }
 
 .hero { overflow: hidden; }
-.intro-on .hero-img { transform-origin: 26% 76%; animation: hero-zoom 1.9s cubic-bezier(.2,.7,.2,1) 4.25s both; }
-.intro-on .hero-card { animation: fade-up .7s ease-out 4.8s both; }
-.intro-on .hero-side { animation: fade-in .9s ease-out 4.6s both; }
+.intro-on .hero-img { transform-origin: 26% 76%; animation: hero-zoom 1.9s cubic-bezier(.2,.7,.2,1) 3.4s both; }
+.intro-on .hero-card { animation: fade-up .7s ease-out 3.85s both; }
+.intro-on .hero-side { animation: fade-in .9s ease-out 3.7s both; }
 .intro-skipped .wok-intro { display: none; }
 .intro-skipped .hero-img, .intro-skipped .hero-card, .intro-skipped .hero-side { animation: none; }
 
