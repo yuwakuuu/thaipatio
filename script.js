@@ -28,7 +28,7 @@ if (intro && document.documentElement.classList.contains('intro-on')) {
   intro.querySelector('.intro-skip').addEventListener('click', skip);
   intro.addEventListener('click', (e) => { if (e.target !== intro.querySelector('.intro-skip')) skip(); });
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && intro.isConnected) skip(); });
-  setTimeout(() => intro.remove(), 4000);
+  setTimeout(() => intro.remove(), 3000);
 }
 
 // Lightbox for the gallery and the printed menu pages
