@@ -29,7 +29,6 @@
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches && (!sessionStorage.getItem('tp-intro') || /[?&]intro/.test(location.search))) {
         document.documentElement.classList.add('intro-on');
       }
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('paint');
     } catch (e) {}
   </script>
 
@@ -103,6 +102,21 @@
       <p class="intro-text">Firing up the wok…</p>
     </div>
     <div class="intro-flare"></div>
+    <div class="logo-stage">
+        <div class="paint-logo" role="img" aria-label="Thai Patio logo">
+          <span class="ltr" style="--x: 5.5; --y: 27.8; --w: 24.9; --h: 36.2; --d: 0"><img src="images/logo-large.png" alt=""></span>
+          <span class="ltr" style="--x: 30.4; --y: 29; --w: 12; --h: 35; --d: 0.22"><img src="images/logo-large.png" alt=""></span>
+          <span class="ltr" style="--x: 42.4; --y: 36; --w: 18; --h: 28; --d: 0.44"><img src="images/logo-large.png" alt=""></span>
+          <span class="ltr" style="--x: 60.4; --y: 36; --w: 7.5; --h: 28; --d: 0.64"><img src="images/logo-large.png" alt=""></span>
+          <img class="umb" style="--d: 0.84" src="images/logo-large.png" alt="" width="1600" height="1222">
+          <span class="ltr" style="--x: 11.5; --y: 67; --w: 12.1; --h: 25; --d: 1.45"><img src="images/logo-large.png" alt=""></span>
+          <span class="ltr" style="--x: 23.6; --y: 67; --w: 17; --h: 25; --d: 1.63"><img src="images/logo-large.png" alt=""></span>
+          <span class="ltr" style="--x: 40.6; --y: 67; --w: 14.1; --h: 25; --d: 1.81"><img src="images/logo-large.png" alt=""></span>
+          <span class="ltr" style="--x: 54.7; --y: 67; --w: 9.7; --h: 25; --d: 1.97"><img src="images/logo-large.png" alt=""></span>
+          <span class="ltr" style="--x: 64.4; --y: 67; --w: 13.1; --h: 25; --d: 2.1"><img src="images/logo-large.png" alt=""></span>
+        </div>
+        <p class="stage-tag">Thai Restaurant · Mesa, AZ</p>
+    </div>
     <button class="intro-skip" type="button">Skip intro</button>
   </div>
 
@@ -133,11 +147,7 @@
       <img class="hero-side" src="images/storefront-tall.jpg" alt="Front of the Thai Patio restaurant with its sign" width="647" height="844">
       <div class="wrap">
         <div class="hero-card">
-          <span class="paint-logo" role="img" aria-label="Thai Patio logo">
-            <img class="p-thai" src="images/logo-large.png" alt="" width="1600" height="1222">
-            <img class="p-umbrella" src="images/logo-large.png" alt="" width="1600" height="1222">
-            <img class="p-patio" src="images/logo-large.png" alt="" width="1600" height="1222">
-          </span>
+          <img class="hero-logo" src="images/logo-large.png" alt="Thai Patio logo" width="1600" height="1222">
           <h1>Thai Restaurant in Mesa</h1>
           <p>1929 N. Power Rd, Suite 101, Mesa, AZ 85205</p>
           <div class="open-badge">
