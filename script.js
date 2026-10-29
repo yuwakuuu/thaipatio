@@ -17,6 +17,20 @@ menu.addEventListener('click', (e) => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Wok intro (home page): the timing lives in CSS; here we only allow skipping and tidy up afterwards
+const intro = document.querySelector('.wok-intro');
+if (intro && document.documentElement.classList.contains('intro-on')) {
+  try { sessionStorage.setItem('tp-intro', '1'); } catch (e) {}
+  const skip = () => {
+    document.documentElement.classList.add('intro-skipped');
+    intro.remove();
+  };
+  intro.querySelector('.intro-skip').addEventListener('click', skip);
+  intro.addEventListener('click', (e) => { if (e.target !== intro.querySelector('.intro-skip')) skip(); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && intro.isConnected) skip(); });
+  setTimeout(() => intro.remove(), 2800);
+}
+
 // Lightbox for the gallery and the printed menu pages
 const box = document.querySelector('.lightbox');
 if (box) {

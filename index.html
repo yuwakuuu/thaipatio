@@ -23,6 +23,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap">
   <link rel="preload" as="image" href="images/hero-chef-wok.jpg">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    // Play the wok intro once per visit (add ?intro to the URL to see it again); never with reduced motion
+    try {
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches && (!sessionStorage.getItem('tp-intro') || /[?&]intro/.test(location.search))) {
+        document.documentElement.classList.add('intro-on');
+      }
+    } catch (e) {}
+  </script>
 
   <script type="application/ld+json">
   {
@@ -54,6 +62,49 @@
   </script>
 </head>
 <body>
+  <div class="wok-intro">
+    <div class="intro-stage" aria-hidden="true">
+      <svg class="wok" viewBox="0 0 320 280" width="320" height="280">
+        <defs>
+          <linearGradient id="fire" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#fff3b0"/>
+            <stop offset=".35" stop-color="#ffc533"/>
+            <stop offset=".7" stop-color="#f39a1e"/>
+            <stop offset="1" stop-color="#e2461b"/>
+          </linearGradient>
+          <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#5d5856"/>
+            <stop offset="1" stop-color="#1f1b1a"/>
+          </linearGradient>
+        </defs>
+        <g class="flames">
+          <path class="f f1" d="M160 168 C118 140 120 92 146 46 C150 82 166 88 170 62 C196 104 204 142 160 168 Z"/>
+          <path class="f f2" d="M120 170 C96 152 98 124 112 100 C116 120 126 122 128 110 C142 132 144 156 120 170 Z"/>
+          <path class="f f3" d="M202 170 C178 154 180 126 196 96 C198 118 210 122 212 106 C228 132 228 158 202 170 Z"/>
+          <path class="f f4" d="M160 170 C140 158 142 134 154 112 C158 128 166 130 168 120 C180 140 180 160 160 170 Z" fill="#fff6c8"/>
+        </g>
+        <g class="sparks">
+          <circle cx="150" cy="120" r="2.5"/><circle cx="178" cy="110" r="2"/><circle cx="132" cy="128" r="1.8"/>
+          <circle cx="196" cy="124" r="2.2"/><circle cx="166" cy="96" r="1.6"/>
+        </g>
+        <g class="pan">
+          <path d="M262 176 L312 150" stroke="#2b2523" stroke-width="10" stroke-linecap="round"/>
+          <path d="M296 158 L314 148" stroke="#8a5a2b" stroke-width="12" stroke-linecap="round"/>
+          <path d="M44 168 Q160 262 276 168 Z" fill="url(#steel)"/>
+          <ellipse cx="160" cy="168" rx="117" ry="10" fill="#3a3432"/>
+          <path d="M70 186 Q120 222 176 214" stroke="#8d8681" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
+        </g>
+        <g class="burner">
+          <rect x="112" y="238" width="96" height="10" rx="5" fill="#2b2523"/>
+          <path d="M122 238 q4 -12 8 0 M142 238 q4 -14 8 0 M162 238 q4 -14 8 0 M182 238 q4 -12 8 0" stroke="#5aa9ff" stroke-width="3" fill="none"/>
+        </g>
+      </svg>
+      <p class="intro-text">Firing up the wok…</p>
+    </div>
+    <div class="intro-flare"></div>
+    <button class="intro-skip" type="button">Skip intro</button>
+  </div>
+
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="nav">
