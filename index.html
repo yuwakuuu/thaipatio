@@ -76,23 +76,33 @@
             <stop offset="0" stop-color="#5d5856"/>
             <stop offset="1" stop-color="#1f1b1a"/>
           </linearGradient>
+          <radialGradient id="inside" cx=".5" cy=".7" r=".6">
+            <stop offset="0" stop-color="#8a4a1c"/>
+            <stop offset=".55" stop-color="#3b2a22"/>
+            <stop offset="1" stop-color="#1c1716"/>
+          </radialGradient>
+          <!-- everything above the wok's front lip, so the fire sits inside the pan -->
+          <clipPath id="in-pan"><path d="M0 0 H320 V168 H277 A117 24 0 0 1 43 168 H0 Z"/></clipPath>
         </defs>
-        <g class="flames">
-          <path class="f f1" d="M160 168 C118 140 120 92 146 46 C150 82 166 88 170 62 C196 104 204 142 160 168 Z"/>
-          <path class="f f2" d="M120 170 C96 152 98 124 112 100 C116 120 126 122 128 110 C142 132 144 156 120 170 Z"/>
-          <path class="f f3" d="M202 170 C178 154 180 126 196 96 C198 118 210 122 212 106 C228 132 228 158 202 170 Z"/>
-          <path class="f f4" d="M160 170 C140 158 142 134 154 112 C158 128 166 130 168 120 C180 140 180 160 160 170 Z" fill="#fff6c8"/>
+        <g class="pan">
+          <path d="M262 176 L312 150" stroke="#2b2523" stroke-width="10" stroke-linecap="round"/>
+          <path d="M296 158 L314 148" stroke="#8a5a2b" stroke-width="12" stroke-linecap="round"/>
+          <path d="M43 168 Q160 268 277 168 Z" fill="url(#steel)"/>
+          <ellipse cx="160" cy="168" rx="117" ry="24" fill="url(#inside)"/>
+          <g clip-path="url(#in-pan)">
+            <g class="flames">
+              <path class="f f1" d="M160 186 C118 158 120 110 146 64 C150 100 166 106 170 80 C196 122 204 160 160 186 Z"/>
+              <path class="f f2" d="M118 186 C94 168 96 140 110 116 C114 136 124 138 126 126 C140 148 142 172 118 186 Z"/>
+              <path class="f f3" d="M204 186 C180 170 182 142 198 112 C200 134 212 138 214 122 C230 148 230 174 204 186 Z"/>
+              <path class="f f4" d="M160 188 C140 176 142 152 154 130 C158 146 166 148 168 138 C180 158 180 178 160 188 Z" fill="#fff6c8"/>
+            </g>
+          </g>
+          <path d="M43 168 A117 24 0 0 0 277 168" stroke="#77706b" stroke-width="5" fill="none"/>
+          <path d="M70 196 Q120 228 176 222" stroke="#8d8681" stroke-width="3" fill="none" stroke-linecap="round" opacity=".5"/>
         </g>
         <g class="sparks">
           <circle cx="150" cy="120" r="2.5"/><circle cx="178" cy="110" r="2"/><circle cx="132" cy="128" r="1.8"/>
           <circle cx="196" cy="124" r="2.2"/><circle cx="166" cy="96" r="1.6"/>
-        </g>
-        <g class="pan">
-          <path d="M262 176 L312 150" stroke="#2b2523" stroke-width="10" stroke-linecap="round"/>
-          <path d="M296 158 L314 148" stroke="#8a5a2b" stroke-width="12" stroke-linecap="round"/>
-          <path d="M44 168 Q160 262 276 168 Z" fill="url(#steel)"/>
-          <ellipse cx="160" cy="168" rx="117" ry="10" fill="#3a3432"/>
-          <path d="M70 186 Q120 222 176 214" stroke="#8d8681" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
         </g>
         <g class="burner">
           <rect x="112" y="238" width="96" height="10" rx="5" fill="#2b2523"/>
