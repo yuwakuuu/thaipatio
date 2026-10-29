@@ -214,11 +214,11 @@ address { font-style: normal; font-size: 1.15rem; margin-bottom: 1rem; }
   .brand img { height: 62px; }
   .menu-nav { top: 76px; }
   html { scroll-padding-top: 140px; }
-  .hero { min-height: min(86vh, 760px); display: flex; align-items: center; }
-  .hero-img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; object-position: 60% 55%; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(35,31,32,.55) 0%, rgba(35,31,32,.15) 45%, rgba(35,31,32,0) 70%); }
-  .hero-card { z-index: 1; margin: 3rem 0; width: 440px; padding: 2rem 2.25rem 2.25rem; }
-  .hero .wrap { position: relative; z-index: 1; }
+  /* photo gets its own column so the card never covers the wok or the cook's face */
+  .hero { display: grid; grid-template-columns: 40% 60%; min-height: min(80vh, 700px); background: var(--mint); }
+  .hero-img { grid-area: 1 / 2; height: 100%; aspect-ratio: auto; object-position: 72% 22%; }
+  .hero .wrap { grid-area: 1 / 1; width: auto; margin: 0; padding: 0 0 0 16px; display: flex; align-items: center; justify-content: flex-end; position: relative; z-index: 1; }
+  .hero-card { margin: 3rem -4rem 3rem 0; width: 420px; padding: 2rem 2.25rem 2.25rem; }
   .split { grid-template-columns: 1fr 1fr; gap: 4rem; }
   .split.flip > :first-child { order: 2; }
   .visit { grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: stretch; }
@@ -226,6 +226,10 @@ address { font-style: normal; font-size: 1.15rem; margin-bottom: 1rem; }
   .gallery { grid-template-columns: repeat(4, 1fr); }
   .order-fab { display: none; }
   .footer { padding-bottom: 3rem; }
+}
+
+@media (min-width: 1280px) {
+  .hero-img { object-position: 55% 22%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
