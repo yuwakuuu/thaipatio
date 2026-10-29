@@ -29,6 +29,7 @@
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches && (!sessionStorage.getItem('tp-intro') || /[?&]intro/.test(location.search))) {
         document.documentElement.classList.add('intro-on');
       }
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('paint');
     } catch (e) {}
   </script>
 
@@ -132,7 +133,11 @@
       <img class="hero-side" src="images/storefront-tall.jpg" alt="Front of the Thai Patio restaurant with its sign" width="647" height="844">
       <div class="wrap">
         <div class="hero-card">
-          <img class="hero-logo" src="images/logo-large.png" alt="Thai Patio logo" width="1600" height="1222">
+          <span class="paint-logo" role="img" aria-label="Thai Patio logo">
+            <img class="p-thai" src="images/logo-large.png" alt="" width="1600" height="1222">
+            <img class="p-umbrella" src="images/logo-large.png" alt="" width="1600" height="1222">
+            <img class="p-patio" src="images/logo-large.png" alt="" width="1600" height="1222">
+          </span>
           <h1>Thai Restaurant in Mesa</h1>
           <p>1929 N. Power Rd, Suite 101, Mesa, AZ 85205</p>
           <div class="open-badge">
